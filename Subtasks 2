@@ -1,0 +1,44 @@
+#include <iostream>
+#include <unordered_map>
+#include <string>
+
+// Function to initialize Morse code map
+unordered_map<char, string> initializeMorseMap() {
+    unordered_map<char, string> morseCodeMap = {
+        {'A', ".-"}, {'B', "-..."}, {'C', "-.-."}, {'D', "-.."}, {'E', "."},
+        {'F', "..-."}, {'G', "--."}, {'H', "...."}, {'I', ".."}, {'J', ".---"},
+        {'K', "-.-"}, {'L', ".-.."}, {'M', "--"}, {'N', "-."}, {'O', "---"},
+        {'P', ".--."}, {'Q', "--.-"}, {'R', ".-."}, {'S', "..."}, {'T', "-"},
+        {'U', "..-"}, {'V', "...-"}, {'W', ".--"}, {'X', "-..-"}, {'Y', "-.--"},
+        {'Z', "--.."}
+    };
+    return morseCodeMap;
+}
+
+int main() {
+    // Initialize Morse code map
+    unordered_map<char, string> morseCodeMap = initializeMorseMap();
+
+    // Get user input
+    string message;
+    cout << "Enter a message in English (A-Z characters only): ";
+    getline(cin, message);
+
+    // Convert message to Morse code
+    string morseCodeMessage;
+    for (char &c : message) {
+        c = toupper(c); // Convert to uppercase
+        if (morseCodeMap.find(c) != morseCodeMap.end()) {
+            string morseCode = morseCodeMap[c];
+            cout << c << ": " << morseCode << endl;
+            morseCodeMessage += morseCode + " "; // Add Morse code to full message
+        } else if (c == ' ') {
+            morseCodeMessage += " "; // (7 spaces in Morse code)
+        }
+    }
+
+    // Output Morse code with spaces
+    cout << "Morse code with spaces: " << endl << morseCodeMessage << endl;
+
+    return 0;
+}
