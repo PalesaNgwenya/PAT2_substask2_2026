@@ -12,6 +12,7 @@ unordered_map<char, string> initializeMorseMap() {
         {'U', "..-"}, {'V', "...-"}, {'W', ".--"}, {'X', "-..-"}, {'Y', "-.--"},
         {'Z', "--.."}
     };
+
     return morseCodeMap;
 }
 
