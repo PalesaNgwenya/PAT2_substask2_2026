@@ -2,7 +2,6 @@
 #include <unordered_map>
 #include <string>
 
-
 // Function to initialize Morse code map
 unordered_map<char, string> initializeMorseMap() {
     unordered_map<char, string> morseCodeMap = {
